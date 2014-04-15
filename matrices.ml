@@ -18,7 +18,9 @@
 (*           *)
 (*  i        *)
 (*On tourne des pièces plates dans l'espace : *)
-let isometries_utilisables =
+type isometrie = int array array ;;
+type 'objet matrice = 'objet array array ;;
+let isometries_utilisables : isometrie array =
   [|
     [|
       [|1;0|] ; (*Identité*)
@@ -55,7 +57,7 @@ let isometries_utilisables =
   |]
 ;;
 
-let dessin_matrice flux m f =
+let dessin_matrice (flux : out_channel) (m : 'objet matrice) (f : 'objet -> string) : unit =
   let n = Array.length m in
   let p = if n = 0 then 0 else Array.length m.(0) in
   let chaines = Array.map (Array.map f) m in
@@ -106,7 +108,7 @@ let dessin_matrice flux m f =
   flush flux
 ;;
 
-let apres_transformation m iso f =
+let apres_transformation (m : 'objet matrice) (iso : isometrie) (f : int -> int -> int -> int -> unit) : unit =
   (*applique f à tous les couples (point initial, point transformé) de l'espace [|0 ; taille de m - 1|]x[|0 ; taille des lignes - 1|]*)
   let n = Array.length m in
   let p = if n = 0 then 0 else (Array.length m.(0)) in
@@ -118,7 +120,6 @@ let apres_transformation m iso f =
   let n_ = ((abs u_i) * n) + ((abs v_i) * p) in
   (*Nouveau nombre de ligne, i.e. la composante sur i du plus gros vecteur transformé*)
   let p_ = ((abs u_j) * n) + ((abs v_j) * p) in
-  let marge_i = if u_i < 0 || v_i < 0 then n_ - 1 else 0 in
   (*On s'interdit les coordonnées négatives : *)
   let marge_i = if u_i < 0 || v_i < 0 then n_ - 1 else 0 in
   let marge_j = if u_j < 0 || v_j < 0 then p_ - 1 else 0 in
@@ -135,7 +136,7 @@ let apres_transformation m iso f =
   done 
 ;;
 
-let taille_transformee m iso =
+let taille_transformee (m : 'objet matrice) (iso : isometrie) : int*int =
   let n = Array.length m in
   let p = if n = 0 then 0 else (Array.length m.(0)) in
   let u_i = iso.(0).(0) in
@@ -147,7 +148,7 @@ let taille_transformee m iso =
   (n_, p_)
 ;;
 
-let transformee m iso =
+let transformee (m : 'objet matrice) (iso : isometrie) : 'objet matrice =
   let (n_, p_) = taille_transformee m iso in
   if n_ = 0 || p_ = 0 then [||]
   else
@@ -157,16 +158,15 @@ let transformee m iso =
 ;;
   
 (* Quelques exemples *)
-
-Random.self_init () ;;
-
-let m = Array.init 4 (fun _ -> Array.init 6 (fun _ -> Random.int 100)) ;;
-
-dessin_matrice stdout m (string_of_int) ;;
-
-for i=0 to -1 + Array.length isometries_utilisables do
-  print_endline "\nTransformons la matrice m avec : " ;
-  dessin_matrice stdout isometries_utilisables.(i) (string_of_int) ;
-  print_newline () ;
-  dessin_matrice stdout (transformee m isometries_utilisables.(i)) (string_of_int)
-done ;;
+if false then
+  begin
+    Random.self_init () ;
+    let m = Array.init 4 (fun _ -> Array.init 6 (fun _ -> Random.int 100)) in
+    dessin_matrice stdout m (string_of_int) ;
+    for i=0 to -1 + Array.length isometries_utilisables do
+      print_endline "\nTransformons la matrice m avec : " ;
+      dessin_matrice stdout isometries_utilisables.(i) (string_of_int) ;
+      print_newline () ;
+      dessin_matrice stdout (transformee m isometries_utilisables.(i)) (string_of_int)
+    done ;
+  end ;;
