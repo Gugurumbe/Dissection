@@ -105,9 +105,68 @@ let dessin_matrice flux m f =
   Array.iter (dessin_ligne) normalises ;
   flush flux
 ;;
+
+let apres_transformation m iso f =
+  (*applique f à tous les couples (point initial, point transformé) de l'espace [|0 ; taille de m - 1|]x[|0 ; taille des lignes - 1|]*)
+  let n = Array.length m in
+  let p = if n = 0 then 0 else (Array.length m.(0)) in
+  let u_i = iso.(0).(0) in
+  let u_j = iso.(1).(0) in
+  let v_i = iso.(0).(1) in
+  let v_j = iso.(1).(1) in
+  (*(u, v) est une base orthonormale de R², telle que u = u_i * i + u_j * j*)
+  let n_ = ((abs u_i) * n) + ((abs v_i) * p) in
+  (*Nouveau nombre de ligne, i.e. la composante sur i du plus gros vecteur transformé*)
+  let p_ = ((abs u_j) * n) + ((abs v_j) * p) in
+  let marge_i = if u_i < 0 || v_i < 0 then n_ - 1 else 0 in
+  (*On s'interdit les coordonnées négatives : *)
+  let marge_i = if u_i < 0 || v_i < 0 then n_ - 1 else 0 in
+  let marge_j = if u_j < 0 || v_j < 0 then p_ - 1 else 0 in
+  let i_ = ref 0 in
+  let j_ = ref 0 in
+  for i=0 to n-1 do
+    i_ := marge_i + i * u_i ;
+    j_ := marge_j + i * u_j ;
+    for j=0 to p-1 do
+      f i j !i_ !j_ ;
+      i_ := !i_ + v_i ;
+      j_ := !j_ + v_j ;
+    done ;
+  done 
+;;
+
+let taille_transformee m iso =
+  let n = Array.length m in
+  let p = if n = 0 then 0 else (Array.length m.(0)) in
+  let u_i = iso.(0).(0) in
+  let u_j = iso.(1).(0) in
+  let v_i = iso.(0).(1) in
+  let v_j = iso.(1).(1) in
+  let n_ = ((abs u_i) * n) + ((abs v_i) * p) in
+  let p_ = ((abs u_j) * n) + ((abs v_j) * p) in
+  (n_, p_)
+;;
+
+let transformee m iso =
+  let (n_, p_) = taille_transformee m iso in
+  if n_ = 0 || p_ = 0 then [||]
+  else
+    let t = Array.init n_ (fun _ -> Array.make p_ m.(0).(0)) in
+    apres_transformation m iso (fun i j i_ j_ -> t.(i_).(j_) <- m.(i).(j)) ;
+    t
+;;
   
+(* Quelques exemples *)
+
 Random.self_init () ;;
 
-let m = Array.init 8 (fun _ -> Array.init 6 (fun _ -> Random.int 100)) ;;
+let m = Array.init 4 (fun _ -> Array.init 6 (fun _ -> Random.int 100)) ;;
 
 dessin_matrice stdout m (string_of_int) ;;
+
+for i=0 to -1 + Array.length isometries_utilisables do
+  print_endline "\nTransformons la matrice m avec : " ;
+  dessin_matrice stdout isometries_utilisables.(i) (string_of_int) ;
+  print_newline () ;
+  dessin_matrice stdout (transformee m isometries_utilisables.(i)) (string_of_int)
+done ;;
