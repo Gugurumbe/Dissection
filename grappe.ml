@@ -205,14 +205,18 @@ let creer_patate_connexe n p aire =
   matrice
 ;;
 
-let fichier_decoupe = open_out "decoupage" ;;
-let piece = ref [|grappe_of_m (creer_patate_connexe 6 6 25)|] ;;
-dessin_piece fichier_decoupe !piece ;;
-for i=1 to 24 do
-  output_string fichier_decoupe "Dessin de la première grappe : \n" ;
-  dessin_grappe fichier_decoupe (!piece).(0) ;
-  output_string fichier_decoupe "Dessin de la pièce : \n" ;
-  piece := division_plus_grande_aire !piece ;
-  dessin_piece fichier_decoupe !piece ;
-done ;;
-close_out fichier_decoupe ;;
+if false then
+  begin
+    let fichier_decoupe = open_out "decoupage" in
+    let piece = ref [|grappe_of_m (creer_patate_connexe 6 6 25)|] in
+    dessin_piece fichier_decoupe !piece ;
+    for i=1 to 24 do
+      output_string fichier_decoupe "Dessin de la première grappe : \n" ;
+      dessin_grappe fichier_decoupe (!piece).(0) ;
+      output_string fichier_decoupe "Dessin de la pièce : \n" ;
+      piece := division_plus_grande_aire !piece ;
+      dessin_piece fichier_decoupe !piece ;
+    done ;
+    close_out fichier_decoupe 
+  end
+;;
