@@ -1,5 +1,5 @@
 (*On interprète, pour l'instant*)
-#load "matrices.cmo" ;;
+(*#load "matrices.cmo" ;;*)
 
 open Matrices ;;
 
@@ -147,7 +147,7 @@ let dessin_grappe flux grappe =
   let (ci, cj) = grappe.centre in
   let carte = Array.map (Array.map (fun b -> if b then "x" else " ")) grappe.m in
   let set_centre i j =
-    carte.(i).(j) <- if grappe.m.(i).(j) then "O" else "¤"
+    carte.(i).(j) <- if grappe.m.(i).(j) then "¤" else "o"
   in
   let ci = int_of_float ci in
   let cj = int_of_float cj in
@@ -208,6 +208,9 @@ let fichier_decoupe = open_out "decoupage" ;;
 let piece = ref [|grappe_of_m (creer_patate_connexe 6 6 25)|] ;;
 dessin_piece fichier_decoupe !piece ;;
 for i=1 to 24 do
+  output_string fichier_decoupe "Dessin de la première grappe : \n" ;
+  dessin_grappe fichier_decoupe (!piece).(0) ;
+  output_string fichier_decoupe "Dessin de la pièce : \n" ;
   piece := division_plus_grande_aire !piece ;
   dessin_piece fichier_decoupe !piece ;
 done ;;

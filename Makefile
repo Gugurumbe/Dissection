@@ -1,5 +1,5 @@
-SRC = matrices.ml
-INTERFACES = matrices.mli
+SRC = matrices.ml grappe.ml
+INTERFACES = matrices.mli grappe.mli
 
 A_COMPILER_BC = $(INTERFACES:.mli=.cmi) $(SRC:.ml=.cmo)
 A_COMPILER_NAT= $(INTERFACES:.mli=.cmi) $(SRC:.ml=.cmx)
