@@ -105,6 +105,7 @@ let dessin_matrice (flux : out_channel) (m : 'objet matrice) (f : 'objet -> stri
     output_string flux "\n" ;
   in
   Array.iter (dessin_ligne) normalises ;
+  output_string flux "\n" ;
   flush flux
 ;;
 
