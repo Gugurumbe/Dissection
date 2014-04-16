@@ -1,0 +1,243 @@
+
+# Matrices.dessin_matrice stdout poids_ex (string_of_int);;
++--+--+--+--+--+--+--+--+--+--+--+
+| \| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|
++--+--+--+--+--+--+--+--+--+--+--+
+| 0|36|62|  |69|49|86|23|65|46|54| 16
++--+--+--+--+--+--+--+--+--+--+--+
+| 1|77|  |17|74|58|46|54|71|31|61| 28
++--+--+--+--+--+--+--+--+--+--+--+
+| 2|63|33|55|23|38|66|  |88|89| 5|  3
++--+--+--+--+--+--+--+--+--+--+--+
+| 3|  |72|46|70|12|99|47|93|88|14| 78
++--+--+--+--+--+--+--+--+--+--+--+
+| 4|82|69|87|67|31|95|37|36|26|  |  4
++--+--+--+--+--+--+--+--+--+--+--+
+| 5|34|79|77|78|81|70|18|  |57|33| 20
++--+--+--+--+--+--+--+--+--+--+--+
+| 6|81|59|20|59|  |90|25|53|38|11|  7
++--+--+--+--+--+--+--+--+--+--+--+
+| 7|65|55|34|85| 9|90|16|98|  |28|  4
++--+--+--+--+--+--+--+--+--+--+--+
+| 8|54|95|27|70|85|  |42|59|89|44| 51
++--+--+--+--+--+--+--+--+--+--+--+
+| 9|38|96|37|  |75|90|70|11|69|69|  0
++--+--+--+--+--+--+--+--+--+--+--+
+Distance totale : 16 + 28 + 3 + 78 + 4 + 20 + 7 + 4 + 51 + 0 = 211
+
+- : unit = ()
+# assigner poids_ex;;
+Nouveau jour.
+
+0 va s'inscrire chez 2...
+	-> J'accepte.
+
+1 va s'inscrire chez 2...
+	-> Non merci, 0 me plaît plus.
+2 va s'inscrire chez 6...
+	-> J'accepte.
+
+3 va s'inscrire chez 4...
+	-> J'accepte.
+
+4 va s'inscrire chez 9...
+	-> J'accepte.
+
+5 va s'inscrire chez 6...
+	-> Non merci, 2 me plaît plus.
+6 va s'inscrire chez 4...
+	-> J'accepte, et je vire 3.
+7 va s'inscrire chez 8...
+	-> J'accepte.
+
+8 va s'inscrire chez 2...
+	-> Non merci, 0 me plaît plus.
+9 va s'inscrire chez 3...
+	-> J'accepte.
+
+Nouveau jour.
+
+0 va s'inscrire chez 2...
+	-> J'accepte.
+
+1 va s'inscrire chez 1...
+	-> J'accepte.
+
+2 va s'inscrire chez 6...
+	-> J'accepte.
+
+3 va s'inscrire chez 9...
+	-> J'accepte.
+
+4 va s'inscrire chez 9...
+	-> J'accepte, et je vire 3.
+5 va s'inscrire chez 7...
+	-> J'accepte.
+
+6 va s'inscrire chez 4...
+	-> J'accepte.
+
+7 va s'inscrire chez 8...
+	-> J'accepte.
+
+8 va s'inscrire chez 6...
+	-> Non merci, 2 me plaît plus.
+9 va s'inscrire chez 3...
+	-> J'accepte.
+
+Nouveau jour.
+
+0 va s'inscrire chez 2...
+	-> J'accepte.
+
+1 va s'inscrire chez 1...
+	-> J'accepte.
+
+2 va s'inscrire chez 6...
+	-> J'accepte.
+
+3 va s'inscrire chez 2...
+	-> Non merci, 0 me plaît plus.
+4 va s'inscrire chez 9...
+	-> J'accepte.
+
+5 va s'inscrire chez 7...
+	-> J'accepte.
+
+6 va s'inscrire chez 4...
+	-> J'accepte.
+
+7 va s'inscrire chez 8...
+	-> J'accepte.
+
+8 va s'inscrire chez 9...
+	-> Non merci, 4 me plaît plus.
+9 va s'inscrire chez 3...
+	-> J'accepte.
+
+Nouveau jour.
+
+0 va s'inscrire chez 2...
+	-> J'accepte.
+
+1 va s'inscrire chez 1...
+	-> J'accepte.
+
+2 va s'inscrire chez 6...
+	-> J'accepte.
+
+3 va s'inscrire chez 6...
+	-> Non merci, 2 me plaît plus.
+4 va s'inscrire chez 9...
+	-> J'accepte.
+
+5 va s'inscrire chez 7...
+	-> J'accepte.
+
+6 va s'inscrire chez 4...
+	-> J'accepte.
+
+7 va s'inscrire chez 8...
+	-> J'accepte.
+
+8 va s'inscrire chez 5...
+	-> J'accepte.
+
+9 va s'inscrire chez 3...
+	-> J'accepte.
+
+Nouveau jour.
+
+0 va s'inscrire chez 2...
+	-> J'accepte.
+
+1 va s'inscrire chez 1...
+	-> J'accepte.
+
+2 va s'inscrire chez 6...
+	-> J'accepte.
+
+3 va s'inscrire chez 3...
+	-> J'accepte.
+
+4 va s'inscrire chez 9...
+	-> J'accepte.
+
+5 va s'inscrire chez 7...
+	-> J'accepte.
+
+6 va s'inscrire chez 4...
+	-> J'accepte.
+
+7 va s'inscrire chez 8...
+	-> J'accepte.
+
+8 va s'inscrire chez 5...
+	-> J'accepte.
+
+9 va s'inscrire chez 3...
+	-> J'accepte, et je vire 3.
+Nouveau jour.
+
+0 va s'inscrire chez 2...
+	-> J'accepte.
+
+1 va s'inscrire chez 1...
+	-> J'accepte.
+
+2 va s'inscrire chez 6...
+	-> J'accepte.
+
+3 va s'inscrire chez 1...
+	-> Non merci, 1 me plaît plus.
+4 va s'inscrire chez 9...
+	-> J'accepte.
+
+5 va s'inscrire chez 7...
+	-> J'accepte.
+
+6 va s'inscrire chez 4...
+	-> J'accepte.
+
+7 va s'inscrire chez 8...
+	-> J'accepte.
+
+8 va s'inscrire chez 5...
+	-> J'accepte.
+
+9 va s'inscrire chez 3...
+	-> J'accepte.
+
+Nouveau jour.
+
+0 va s'inscrire chez 2...
+	-> J'accepte.
+
+1 va s'inscrire chez 1...
+	-> J'accepte.
+
+2 va s'inscrire chez 6...
+	-> J'accepte.
+
+3 va s'inscrire chez 0...
+	-> J'accepte.
+
+4 va s'inscrire chez 9...
+	-> J'accepte.
+
+5 va s'inscrire chez 7...
+	-> J'accepte.
+
+6 va s'inscrire chez 4...
+	-> J'accepte.
+
+7 va s'inscrire chez 8...
+	-> J'accepte.
+
+8 va s'inscrire chez 5...
+	-> J'accepte.
+
+9 va s'inscrire chez 3...
+	-> J'accepte.
+
+- : int array = [|2; 1; 6; 0; 9; 7; 4; 8; 5; 3|]
