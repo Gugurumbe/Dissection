@@ -91,16 +91,17 @@ let decrire_match flux bij piece_a piece_b =
   flush flux
 ;;
 
-let fichier = open_out "test_correspondances" ;;
-
-let a = ref [|grappe_of_m (creer_patate_connexe 4 8 20)|] ;;
-let b = ref [|grappe_of_m (creer_patate_connexe 7 5 20)|] ;;
-
-dessin_piece fichier !a ;;
-dessin_piece fichier !b ;;
-a := division_plus_grande_aire !a ;;
-b := division_plus_grande_aire !b ;;
-dessin_piece fichier !a ;;
-dessin_piece fichier !b ;;
-decrire_match fichier (bijection (compute_match !a !b)) !a !b ;;
-close_out fichier ;;
+if false then
+  begin
+    let fichier = open_out "test_correspondances" in
+    let a = ref [|grappe_of_m (creer_patate_connexe 4 8 20)|] in
+    let b = ref [|grappe_of_m (creer_patate_connexe 7 5 20)|] in
+    dessin_piece fichier !a ;
+    dessin_piece fichier !b ;
+    a := division_plus_grande_aire !a ;
+    b := division_plus_grande_aire !b ;
+    dessin_piece fichier !a ;
+    dessin_piece fichier !b ;
+    decrire_match fichier (bijection (compute_match !a !b)) !a !b ;
+    close_out fichier ;
+  end ;;
