@@ -147,7 +147,8 @@ let dessin_grappe flux grappe =
   let (ci, cj) = grappe.centre in
   let carte = Array.map (Array.map (fun b -> if b then "x" else " ")) grappe.m in
   let set_centre i j =
-    carte.(i).(j) <- if grappe.m.(i).(j) then "¤" else "o"
+    if i >= 0 && i < Array.length carte && j >= 0 && j < Array.length carte then
+      carte.(i).(j) <- if grappe.m.(i).(j) then "O" else "o"
   in
   let ci = int_of_float ci in
   let cj = int_of_float cj in

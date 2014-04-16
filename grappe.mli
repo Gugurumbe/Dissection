@@ -24,7 +24,7 @@ val dessin_grappe : out_channel -> grappe -> unit
 (**Dessine la grappe dans le canal donné. Caractères utilisés : **)
 (**    -> "x" : le point appartient à la grappe.**)
 (**    -> " " : le point n'appartient pas à la grappe.**)
-(**    -> "¤" : le point appartient à la grappe et est voisin du centre.**)
+(**    -> "O" : le point appartient à la grappe et est voisin du centre.**)
 (**    -> "o" : le point n'appartient pas à la grappe mais est voisin du centre.**)
 val dessin_piece : out_channel -> piece -> unit
 (**Dessine la pièce dans le canal donné. On ne dessine pas chaque grappe, mais on inscrit le numéro de la grappe concernée.**)
