@@ -13,6 +13,8 @@ type piece = grappe array
 exception Grappe_vide
 exception Grappe_point
 (**Levée lorsqu'on essaye de diviser une grappe à 1 élément.**)
+val centre : bool Matrices.matrice -> float * float
+(**Le barycentre de la matrice.**)
 val grappe_of_m : bool Matrices.matrice -> grappe
 val gagner : grappe -> int -> int -> unit
 val perdre : grappe -> int -> int -> unit
