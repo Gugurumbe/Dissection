@@ -1,3 +1,4 @@
+(**Ce fichier a un but dans la vie, aussi étrange que cela puisse paraître. Il s'agit d'étudier la ressemblance entre deux grappes.**)
 type corres =
   {
     a : int ;
