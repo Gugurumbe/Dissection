@@ -96,7 +96,7 @@ let dessin_matrice (flux : out_channel) (m : 'objet matrice) (f : 'objet -> stri
     done 
   in
   dessin_separation () ;
-  print_newline () ;
+  output_string flux "\n" ;
   let dessin_ligne l =
     output_string flux "|" ;
     Array.iter (fun s -> output_string flux s ; output_string flux "|") l ;
